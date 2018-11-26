@@ -1,0 +1,4 @@
+// Function for calculating planet revolution in earth years
+@function revolution($planet-year-in-days) {
+  @return $planet-year-in-days * $year-in-seconds / 365.2563 + s
+}
