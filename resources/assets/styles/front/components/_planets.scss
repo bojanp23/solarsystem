@@ -1,0 +1,184 @@
+.sun,
+.planet,
+.moon {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  border-radius: 50%;
+
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  transform-style: preserve-3d;
+}
+
+.sun {
+  width: $sun;
+  height: $sun;
+
+  margin-top: -$sun / 2;
+  margin-left: -$sun / 2;
+
+  background-color: $sun-bg-color;
+
+  transform: rotateX(-90deg);
+}
+
+.moon {
+  left: -$moon / 2;
+
+  width: $moon;
+  height: $moon;
+
+  background: $moon-bg-color;
+
+  animation-name: animate--planet;
+  animation-duration: revolution($moon-revolution-days);
+}
+
+$planets: (
+  "mercury": (
+    position: -$mercury-planet / 2,
+    planetSize: $mercury-planet,
+    planetColor: $mercury-bg-color,
+    animation: (animate--planet, shadow-mercury),
+    orbit: $mercury-orbit,
+    orbitPosition: -$mercury-orbit / 2,
+    revolution: revolution($mercury-revolution-days),
+  ),
+  "venus": (
+    position: -$venus-planet / 2,
+    planetSize: $venus-planet,
+    planetColor: $venus-bg-color,
+    animation: (animate--planet, shadow-venus),
+    orbit: $venus-orbit,
+    orbitPosition: -$venus-orbit / 2,
+    revolution: revolution($venus-revolution-days),
+  ),
+  "earth": (
+    position: -$earth-planet / 2,
+    planetSize: $earth-planet,
+    planetColor: $earth-bg-color,
+    animation: (animate--planet, shadow-earth),
+    orbit: $earth-orbit,
+    orbitPosition: -$earth-orbit / 2,
+    revolution: revolution($earth-revolution-days),
+  ),
+  "moon": (
+    position: -$moon / 2,
+    planetSize: $moon,
+    planetColor: $moon-bg-color,
+    animation: (animate--planet, shadow-earth),
+    orbit: $moon-orbit,
+    orbitPosition: -$moon-orbit / 2,
+    revolution: revolution($moon-revolution-days),
+  ),
+  "mars": (
+    position: -$mars-planet / 2,
+    planetSize: $mars-planet,
+    planetColor: $mars-bg-color,
+    animation: (animate--planet, shadow-mars),
+    orbit: $mars-orbit,
+    orbitPosition: -$mars-orbit / 2,
+    revolution: revolution($mars-revolution-days),
+  ),
+  "jupiter": (
+    position: -$jupiter-planet / 2,
+    planetSize: $jupiter-planet,
+    planetColor: $jupiter-bg-color,
+    animation: (animate--planet, shadow-jupiter),
+    orbit: $jupiter-orbit,
+    orbitPosition: -$jupiter-orbit / 2,
+    revolution: revolution($jupiter-revolution-days),
+  ),
+  "saturn": (
+    position: -$saturn-planet / 2,
+    planetSize: $saturn-planet,
+    planetColor: $saturn-bg-color,
+    animation: (animate--planet, shadow-saturn),
+    orbit: $saturn-orbit,
+    orbitPosition: -$saturn-orbit / 2,
+    revolution: revolution($saturn-revolution-days),
+  ),
+  "uranus": (
+    position: -$uranus-planet / 2,
+    planetSize: $uranus-planet,
+    planetColor: $uranus-bg-color,
+    animation: (animate--planet, shadow-uranus),
+    orbit: $uranus-orbit,
+    orbitPosition: -$uranus-orbit / 2,
+    revolution: revolution($uranus-revolution-days),
+  ),
+  "neptune": (
+    position: -$neptune-planet / 2,
+    planetSize: $neptune-planet,
+    planetColor: $neptune-bg-color,
+    animation: (animate--planet, shadow-neptune),
+    orbit: $neptune-orbit,
+    orbitPosition: -$neptune-orbit / 2,
+    revolution: revolution($neptune-revolution-days),
+  ),
+);
+
+@each $name, $data in $planets {
+  .planet--#{$name} {
+    left: map-get($data, position);
+
+    width: map-get($data, planetSize);
+    height: map-get($data, planetSize);
+
+    background-color: map-get($data, planetColor);
+
+    animation-name: map-get($data, animation);
+    animation-duration: map-get($data, revolution);
+  }
+
+  .orbit--#{$name} {
+    width: map-get($data, orbit);
+    height: map-get($data, orbit);
+
+    margin-top: map-get($data, orbitPosition);
+    margin-left: map-get($data, orbitPosition);
+
+    animation-duration: map-get($data, revolution);
+  }
+}
+
+.planet--saturn {
+  &::before,
+  &::after {
+    position: absolute;
+
+    content: "";
+
+    border-radius: 50%;
+
+    transform: rotateX(90deg);
+  }
+
+  &::before {
+    top: -20px;
+    left: -20px;
+
+    width: 100px;
+    height: 100px;
+
+    border: 5px solid rgba($saturn-ring-bg-color, .5);
+  }
+
+  &::after {
+    top: -13px;
+    left: -13px;
+
+    width: 85px;
+    height: 85px;
+
+    border: 10px solid rgba($saturn-ring-bg-color, .7);
+  }
+}

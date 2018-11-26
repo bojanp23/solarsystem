@@ -4,10 +4,49 @@
 
  body,
  html {
+   width: 100%;
    height: 100%;
-   min-height: 100%;
 
-    font-size: $fontSize;
+   padding: 0;
+   margin: 0;
+   overflow: hidden;
 
-   background-color: $backgroundColor--grayLight;
+   background-image: url($backgroundImage);
+ }
+
+ .galaxy {
+   position: relative;
+
+   width: 100%;
+   height: 100%;
+ }
+
+ .solar-system {
+   position: absolute;
+
+   width: 100%;
+   height: 100%;
+
+   transform: rotateX(75deg);
+   transform-style: preserve-3d;
+ }
+
+ .orbit {
+   position: absolute;
+
+   top: 50%;
+   left: 50%;
+
+   border: 1px solid rgba(#fff, .4);
+   border-radius: 50%;
+
+   animation-name: animate--orbit;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;
+
+   transform-style: preserve-3d;
+ }
+
+ .orbit--moon {
+   animation-name: animate--suborbit;
  }
