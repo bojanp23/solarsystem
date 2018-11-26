@@ -1,0 +1,96 @@
+// Shadow Animations
+$shadows: (
+  "mercury": (
+    0%: inset 4px 0 5px $shadow-color,
+    25%: inset 22px -10px 13px $shadow-color,
+    25.001%: inset -22px -10px 13px $shadow-color,
+    50%: inset -12px 0 5px $shadow-color,
+    75%: inset -2px 3px 2px $shadow-color,
+    100%: inset 4px 0 5px $shadow-color,
+  ),
+  "venus": (
+    0%: inset 4px 0 5px $shadow-color,
+    25%: inset 22px -10px 13px $shadow-color,
+    25.001%: inset -22px -10px 13px $shadow-color,
+    50%: inset -12px 0 5px $shadow-color,
+    75%: inset -2px 3px 2px $shadow-color,
+    100%: inset 4px 0 5px $shadow-color,
+  ),
+  "earth": (
+    0%: inset 8px 0 5px $shadow-color,
+    25%: inset 45px -20px 25px $shadow-color,
+    25.001%: inset -45px -20px 25px $shadow-color,
+    50%: inset -8px 0 5px $shadow-color,
+    75%: inset -2px 3px 2px $shadow-color,
+    100%: inset 8px 0 5px $shadow-color,
+  ),
+  "mars": (
+    0%: inset 4px 0 5px $shadow-color,
+    25%: inset 22px -10px 13px $shadow-color,
+    25.001%: inset -22px -10px 13px $shadow-color,
+    50%: inset -12px 0 5px $shadow-color,
+    75%: inset -2px 3px 2px $shadow-color,
+    100%: inset 4px 0 5px $shadow-color,
+  ),
+  "jupiter": (
+    0%: inset 16px 0 5px $shadow-color,
+    25%: inset 80px -30px 50px $shadow-color,
+    25.001%: inset -80px -30px 50px $shadow-color,
+    50%: inset -16px 0 5px $shadow-color,
+    75%: inset -2px 3px 2px $shadow-color,
+    100%: inset 16px 0 5px $shadow-color,
+  ),
+  "saturn": (
+    0%: inset 16px 0 5px $shadow-color,
+    25%: inset 80px -30px 50px $shadow-color,
+    25.001%: inset -80px -30px 50px $shadow-color,
+    50%: inset -16px 0 5px $shadow-color,
+    75%: inset -2px 3px 2px $shadow-color,
+    100%: inset 16px 0 5px $shadow-color,
+  ),
+  "uranus": (
+    0%: inset 8px 0 5px $shadow-color,
+    25%: inset 40px -15px 40px $shadow-color,
+    25.001%: inset -40px -15px 40px $shadow-color,
+    50%: inset -8px 0 5px $shadow-color,
+    75%: inset 0 0 2px $shadow-color,
+    100%: inset 8px 0 5px $shadow-color,
+  ),
+  "neptune": (
+    0%: inset 12px 0 5px $shadow-color,
+    25%: inset 50px -15px 40px $shadow-color,
+    25.001%: inset -50px -15px 40px $shadow-color,
+    50%: inset -12px 0 5px $shadow-color,
+    75%: inset 0 0 2px $shadow-color,
+    100%: inset 12px 0 5px $shadow-color,
+  ),
+);
+
+@each $name, $shadow in $shadows {
+  @keyframes shadow-#{$name} {
+    0% {
+      box-shadow: map-get($shadow, 0%);
+    }
+
+    25% {
+      box-shadow: map-get($shadow, 25%);
+
+    }
+
+    25.001% {
+      box-shadow: map-get($shadow, 25.001%);
+    }
+
+    50% {
+      box-shadow: map-get($shadow, 50%);
+    }
+
+    75% {
+      box-shadow: map-get($shadow, 75%);
+    }
+
+    100% {
+      box-shadow: map-get($shadow, 100%);
+    }
+  }
+}
