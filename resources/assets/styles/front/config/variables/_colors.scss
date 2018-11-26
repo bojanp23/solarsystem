@@ -1,16 +1,15 @@
-$fontColor--primary: #607d8b;
-$fontColor--secondary: #c3cdd2;
+// Planet Background Colors
+$sun-bg-color: #fb7209;
+$mercury-bg-color: #713800;
+$venus-bg-color: #ffd3a8;
+$earth-bg-color: #0058b0;
+$moon-bg-color: #ccc;
+$mars-bg-color: #b00000;
+$jupiter-bg-color: #f60;
+$saturn-bg-color: #c0c0c0;
+$saturn-ring-bg-color: #a09382;
+$uranus-bg-color: #00b9b9;
+$neptune-bg-color: #00f;
 
-$fontColor--navigationButton: #607d8b;
-$fontColor--navigationSecondary: #bac6cc;
-
-$backgroundColor--navigationButton: #fcfcfc;
-$backgroundColor--grayLight: #fafafa;
-$backgroundColor--gray: #cfd8dc;
-
-$backgroundColor--secondary: #2962ff;
-
-$backgroundColor--imagePlaceholder: #eceff1;
-$backgroundColor--archiveEnrolment: #e8ecee;
-
-$borderColor--gray: #eceff1;
+// Shadow
+$shadow-color: rgba(#000, .6);
